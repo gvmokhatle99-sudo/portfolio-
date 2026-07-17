@@ -600,3 +600,15 @@ footer {
         display: none; /* Simplifies viewing layout directly on mobile viewports */
     }
 }
+/* This adds a smooth transition timing to your cards */
+.skill-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* This makes the card lift up, change color slightly, and add a shadow on hover */
+.skill-card:hover {
+  transform: translateY(-5px); /* Lifts the card up beautifully */
+  border-color: var(--accent); /* Changes the border color to your theme's accent color */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a premium floating shadow */
+}
