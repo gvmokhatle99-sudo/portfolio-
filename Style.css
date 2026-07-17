@@ -1,0 +1,602 @@
+:root {
+    --bg-main: #0B0F19;
+    --bg-card: #161B26;
+    --bg-input: #1F2635;
+    --text-main: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --accent: #00D2FF;
+    --accent-hover: #00A3C4;
+    --gradient: linear-gradient(135deg, #00D2FF 0%, #0066FF 100%);
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(11, 15, 25, 0.8);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navbar a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    color: var(--accent);
+}
+
+/* Structural Page Containers */
+main {
+    margin-top: 2rem;
+}
+
+section {
+    padding: 6rem 2rem 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.max-width-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+/* Hero Elements */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    min-height: 85vh;
+    padding-top: 8rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.taglines {
+    margin-bottom: 2rem;
+}
+
+.taglines p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.taglines p i {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Custom UI Button Framework */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: #0B0F19;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 210, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+}
+
+/* Premium Portrait Frame (Inspired by the sharp, curved edge layout) */
+.hero-image {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.avatar-frame {
+    width: 320px; /* Slightly wider to show off the formal suit shoulders */
+    height: 420px; /* Taller rectangular portrait format */
+    border-radius: 120px 24px 24px 24px; /* Creates that distinctive soft, deep curve on the top-left */
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--bg-card);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: var(--transition);
+}
+
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps your photo completely crisp without stretching it */
+    object-position: top center; /* Focuses perfectly on your face and shoulders */
+}
+
+/* Subtle glow behind the new portrait style */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 210, 255, 0.15);
+    filter: blur(100px);
+    top: 20%;
+    right: 10%;
+    z-index: -1;
+}
+
+/* Make sure it scales nicely on phone screens */
+@media (max-width: 768px) {
+    .avatar-frame {
+        width: 280px;
+        height: 360px;
+        margin: 0 auto;
+        border-radius: 90px 20px 20px 20px; /* Proportional curve scaling for smaller mobile views */
+    }
+}
+
+
+/* Metric / Highlight Row Styles */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 210, 255, 0.2);
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: block;
+    color: #fff;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* About Layout Rules */
+.about-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.objective-card {
+    background: linear-gradient(145deg, rgba(22, 27, 38, 0.8), rgba(31, 38, 53, 0.4));
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.objective-card h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.objective-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Skills Modular Grid Card System */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: var(--transition);
+}
+
+.skill-card:hover {
+    border-color: rgba(0, 210, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.skill-card i {
+    font-size: 1.3rem;
+    color: var(--accent);
+    background: rgba(0, 210, 255, 0.08);
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: #fff;
+}
+
+.skill-info p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+/* Vertical Timeline Layout for Experience */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    top: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.timeline-item {
+    padding: 1rem 1rem 2.5rem 3.5rem;
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    left: 15px;
+    top: 1.6rem;
+    box-shadow: 0 0 10px var(--accent);
+    z-index: 2;
+}
+
+.timeline-card {
+    background-color: var(--bg-card);
+    padding: 1.8rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.timeline-card h4 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timeline-card ul {
+    list-style: none;
+}
+
+.timeline-card ul li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* Dual Column Layout (Education / Portfolio Cards) */
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.edu-card, .portfolio-card {
+    background-color: var(--bg-card);
+    padding: 1.8rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-top h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.card-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Contact Grid Layout mapping */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.contact-item i {
+    font-size: 1.1rem;
+    color: var(--accent);
+    background: rgba(11, 15, 25, 0.6);
+    padding: 0.8rem;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item div p:first-child {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-item div p:last-child {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.contact-message-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    padding-left: 3rem;
+}
+
+.contact-message-side p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Structural Footer styling mapping */
+footer {
+    background-color: #070a11;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 6rem;
+}
+
+.footer-content h4 {
+    color: var(--accent);
+    font-family: var(--font-sans);
+    margin-bottom: 0.75rem;
+}
+
+.footer-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.footer-content .copyright {
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile Responsiveness media breakpoints */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 6rem;
+    }
+    .hero-title {
+        font-size: 2.3rem;
+    }
+    .taglines p {
+        justify-content: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .about-layout, .contact-grid, .grid-2col {
+        grid-template-columns: 1fr;
+    }
+    .contact-message-side {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 2rem;
+    }
+    .navbar {
+        display: none; /* Simplifies viewing layout directly on mobile viewports */
+    }
+}
